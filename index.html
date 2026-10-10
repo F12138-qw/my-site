@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>绍兴·风景</title>
+  <title>我在绍兴很好</title>
   <style>
-    /* 页面基础重置 */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    /* 核心：背景图容器 */
+
     .bg-layer {
       position: fixed;
       top: 0; left: 0;
@@ -16,20 +14,17 @@
       z-index: -1;
       background-position: center;
       background-size: cover;
-      transition: background-image 1s ease-in-out; /* 1秒的平滑过渡动画 */
+      transition: background-image 1s ease-in-out;
     }
-    
-    /* 默认白天晚霞背景 */
+
     .bg-layer.day {
       background-image: url('shaoxing.jpg');
     }
-    
-    /* 夜晚夜景背景 */
+
     .bg-layer.night {
       background-image: url('shaoxingnight.jpg');
     }
 
-    /* 黑色遮罩层，让文字更清晰 */
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -38,10 +33,9 @@
       z-index: -1;
     }
 
-    /* 页面内容布局 */
     body {
       color: white;
-      font-family: 'KaiTi', 'STKaiti', serif; /* 使用楷体增加诗意 */
+      font-family: 'KaiTi', 'STKaiti', serif;
       text-align: center;
       padding: 150px 20px;
       min-height: 100vh;
@@ -54,7 +48,6 @@
     h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
     p { font-size: 1.2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
 
-    /* 切换按钮样式 */
     .toggle-btn {
       margin-top: 40px;
       padding: 10px 24px;
@@ -64,7 +57,7 @@
       color: white;
       font-size: 1rem;
       cursor: pointer;
-      backdrop-filter: blur(5px); /* 磨砂玻璃效果 */
+      backdrop-filter: blur(5px);
       transition: all 0.3s ease;
       outline: none;
     }
@@ -76,31 +69,22 @@
   </style>
 </head>
 <body>
-  <!-- 背景图层 -->
   <div class="bg-layer day" id="bg-layer"></div>
-  <!-- 遮罩层 -->
   <div class="overlay"></div>
 
-  <!-- 页面文字 -->
-  <h1>诗画江南</h1>
-  <p>江南忆，最忆是杭州与绍兴</p>
+  <h1>我现在在绍兴校区。我在这很好！</h1>
 
-  <!-- 切换按钮 -->
   <button class="toggle-btn" id="toggle-btn">切换夜景 🌙</button>
 
   <script>
-    // 获取按钮和背景容器
     const btn = document.getElementById('toggle-btn');
     const bgLayer = document.getElementById('bg-layer');
 
-    // 点击事件
     btn.addEventListener('click', function() {
-      // 切换 class (day 和 night 来回切换)
       bgLayer.classList.toggle('night');
-      
-      // 切换按钮文字
+
       if (bgLayer.classList.contains('night')) {
-        btn.textContent = '切换回白天 ☀️';
+        btn.textContent = '切换回落日 ☀️';
       } else {
         btn.textContent = '切换夜景 🌙';
       }
